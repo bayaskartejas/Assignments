@@ -31,7 +31,7 @@ When an error occurs within a route handler (such as the throw new Error("User n
 line in the /user GET endpoint), Express will immediately skip to the next error-handling middleware.*/
 
 app.use((err,req,res,next)=>{
-  res.status(404).send({})
+  res.status(404)
   errorCount++
 })
 module.exports = app;

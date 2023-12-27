@@ -4,19 +4,32 @@ const userMiddleware = require("../middleware/user");
 
 // User Routes
 router.post('/signup', (req, res) => {
-    // Implement user signup logic
+    let username = req.body.username
+    let password = req.body.password
+    res.status(200).json({
+        message: "User created successfully"
+    })    
 });
 
 router.get('/courses', (req, res) => {
-    // Implement listing all courses logic
+    let username = req.headers.username
+    let password = req.headers.password
+    res.json(courses)
 });
 
 router.post('/courses/:courseId', userMiddleware, (req, res) => {
-    // Implement course purchase logic
+    let courseId = req.params.courseId
+    let username = req.headers.username
+    let password = req.headers.password
+    res.status(200).json({
+        message: "Course purchased successfully"
+    })  
 });
 
 router.get('/purchasedCourses', userMiddleware, (req, res) => {
-    // Implement fetching purchased courses logic
+    let username = req.headers.username
+    let password = req.headers.password
+    res.json(purchasedCourses)
 });
 
 module.exports = router
