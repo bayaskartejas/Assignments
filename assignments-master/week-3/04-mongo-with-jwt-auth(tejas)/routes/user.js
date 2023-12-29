@@ -1,8 +1,9 @@
 const { Router } = require("express");
 const router = Router();
 const jwt = require("jsonwebtoken")
-const {User, emailSchema, passwordSchema, secretKey, Course} = require("../db")
+const {User, emailSchema, passwordSchema, secretKeyUser, Course} = require("../db")
 const userMiddleware = require("../middleware/user");
+
 
 // User Routes
 router.post('/signup', async (req, res) => {
@@ -40,7 +41,7 @@ router.post('/signin', async (req, res) => {
         password: password
     });
     if(data.length == 1){
-    let token = jwt.sign({username},secretKey)
+    let token = jwt.sign({username},secretKeyUser)
     res.status(200).json({token: token})            
     }
     else{

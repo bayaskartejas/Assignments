@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken')
-const {secretKey} = require("../db")
+const {secretKeyAdmin} = require("../db")
 
 // Middleware for handling auth
 function adminMiddleware(req, res, next) {
     let token = req.headers.authorization.split(' ')[1]
     try{
-        jwt.verify(token, secretKey)
+        jwt.verify(token, secretKeyAdmin)
         next()
     }
     catch(err){

@@ -6,7 +6,8 @@ mongoose.connect('mongodb+srv://tejasbayaskar:Omboss8506%40@cluster0.fhjtmo2.mon
 
 // Define schemas
 
-const secretKey = "top-secret"
+const secretKeyAdmin = "top-secret-admin"
+const secretKeyUser = "top-secret-user"
 
 const emailSchema = zod.string().email()
 const passwordSchema = zod.string().min(5)
@@ -43,5 +44,6 @@ module.exports = {
     Course,
     emailSchema,
     passwordSchema,
-    secretKey
+    secretKeyAdmin,
+    secretKeyUser
 }
